@@ -17,6 +17,15 @@
 
     // 다양한 타입의 변수를 담는 것도 가능
     var arr2 = [10, "가", false, function() {}, null, undefined];
+    for(var i = 0; i < arr2.length; i++) {
+      console.log(typeof(arr2[i])); // number, string, boolean, function, object, undefined
+    }
+
+    var arr3 = [];
+    arr3.length = 10; // 배열의 크기 설정
+    var arr4 = new Array(10); // 배열의 생성과 크기 설정
+    var arr5 = new Array(10, 20, 30, 40); // 인자의 값으로 배열을 생성
+    console.log(arr5);  // [10, 20, 30, 40]
   </script>
 </head>
 <body>
