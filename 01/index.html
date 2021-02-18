@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    var num = 10;
+    var str = "hello world";
+    var bool = true;
+
+    console.log(num);
+    console.log(str);
+    console.log(bool);
+
+    // alert(num);
+    // alert(str);
+    // alert(bool);
+
+    document.write(num);
+    document.write(str);
+    document.write(bool);
+    document.write("<h1>hello world</h1>");
+
+    var a;
+    a = 10;
+    var b;
+    // alert(b); // undefined : 데이터 타입
+    // alert(c); // c is not defined : 에러
+
+    var fun = function add(a, b) {
+      return a + b;
+    }
+
+    // var c = add(10, 20);
+    // alert(c);
+
+    var object = {};
+
+    console.log("fun :" + fun);
+    console.log("object :" + object);
+
+    // 변수나 리터럴의 자료형을 알아보는 연산자 : typeof
+    function MyClass() {
+
+    }
+    var myClass = MyClass;
+    console.log(typeof num);
+    console.log(typeof str);
+    console.log(typeof bool);
+    console.log(typeof a);
+    console.log(typeof fun);
+    console.log(typeof object);
+    console.log(typeof myClass);  // function 타입
+    console.log(typeof null);  
+
+    var funObj = new fun();
+
+    console.log(30 + '30');
+    console.log(30 == true);
+
+    for(var i = 5; --i ;) {
+      console.log(i);
+    }
+
+    var f = function(x) {
+      // alert(x * x);
+      alert(x);
+    };
+    // f();  // undefined
+    // var ret = f();  // undefined
+    // alert("ret :: " + ret)  // undefined
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
