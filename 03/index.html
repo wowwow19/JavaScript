@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // Object
+
+    // 빈 객체 만들기
+    // var obj = {};
+    // var obj2 = new Object();
+
+    // // wrapper class
+    
+    // var a = "가나다라";
+    // console.log(a.indexOf("다"));
+    // var b = 10.1234;
+    // console.log(b.toPrecision(3));
+
+    // var pr = prompt("나이를 입력해주세요.", "20");
+    // // pr = parseInt(pr) + 10;
+    // pr = Number(pr) + 10;
+    // alert(pr);
+
+    // 문자 > 숫자
+    var str = "123";
+    console.log(typeof parseInt(str));  // 명시적 형변환
+    console.log(typeof Number(str));    // 명시적 형변환
+    console.log(typeof (str * 1));      // 묵시적 형변환
+
+    // 숫자 > 문자
+    var num = 123;
+    console.log(typeof (num+""));
+
+    // 논리 > 숫자 : Number(), /1, *1, -0
+    // 숫자 > 논리 : Boolean(), !!
+    // 논리 > 문자 : +"", 
+
+</script>
+</head>
+<body>
+  
+</body>
+</html>

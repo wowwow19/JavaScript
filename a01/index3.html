@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // var dan = 3;
+    // document.write(dan + " * 1 = " + (dan * 1) + "<br>");
+    // document.write(dan + " * 2 = " + (dan * 2) + "<br>");
+    // document.write(dan + " * 3 = " + (dan * 3) + "<br>");
+    // document.write(dan + " * 4 = " + (dan * 4) + "<br>");
+    // document.write(dan + " * 5 = " + (dan * 5) + "<br>");
+    // document.write(dan + " * 6 = " + (dan * 6) + "<br>");
+    // document.write(dan + " * 7 = " + (dan * 7) + "<br>");
+    // document.write(dan + " * 8 = " + (dan * 8) + "<br>");
+    // document.write(dan + " * 9 = " + (dan * 9) + "<br>");
+    
+    function print99dan(dan) { // 파라미터에 데이터 타입을 쓸 필요 없음
+      document.write(dan + " * 1 = " + (dan * 1) + "<br>");
+      document.write(dan + " * 2 = " + (dan * 2) + "<br>");
+      document.write(dan + " * 3 = " + (dan * 3) + "<br>");
+      document.write(dan + " * 4 = " + (dan * 4) + "<br>");
+      document.write(dan + " * 5 = " + (dan * 5) + "<br>");
+      document.write(dan + " * 6 = " + (dan * 6) + "<br>");
+      document.write(dan + " * 7 = " + (dan * 7) + "<br>");
+      document.write(dan + " * 8 = " + (dan * 8) + "<br>");
+      document.write(dan + " * 9 = " + (dan * 9) + "<br>");      
+    }
+
+    print99dan(7);
+    print99dan(9);
+
+    // 생성자 함수
+    function Student(no, name, kor, eng, mat) {
+      this.no = no;
+      this.name = name;
+      this.kor = kor;
+      this.eng = eng;
+      this.mat = mat;
+      this.toString = function() {
+        return no + " :: " + name + " :: " + (kor+eng+mat);
+      }
+    }
+
+    var s1 = new Student(1, "홍길동", 90, 90, 90);
+    var s2 = new Student(2, "김길동");
+    var s3 = new Student(3, "이길동", 30, 30, 30, 30);
+    var s4 = {no:4, name:"박길동", kor:30, eng:30, mat:30};
+    console.log(s1.no);
+    console.log(s1.name);
+    console.log(s1.kor);
+    console.log(s1.eng);
+    console.log(s1.mat);
+    console.log(s2);
+    console.log(s3);
+    console.log(s4);
+
+    document.write(s1 + "<br>");
+    document.write(s2 + "<br>");
+    document.write(s3 + "<br>");
+    document.write(s4 + "<br>");
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

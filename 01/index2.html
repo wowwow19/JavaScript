@@ -37,9 +37,15 @@
     obj.z = 20;
     console.log(obj);
 
-    var student = {no : 1, name : "홍길동", kor : 90, eng : 80, mat : 70};
-    var student2 = {no : 2, name : "2길동", kor : 80, eng : 20, mat : 90};
-    var student3 = {no : 3, name : "3길동", kor : 50, eng : 30, mat : 30};
+    var student = {no : 1, name : "홍길동", kor : 90, eng : 80, mat : 70, 
+                    total : function() {return this.kor + this.eng + this.mat},
+                    toString : function() {return this.no + ", " + this.name + ", " + this.total() + "<br>"}};
+    var student2 = {no : 2, name : "2길동", kor : 80, eng : 20, mat : 90,
+                    total : function() {return this.kor + this.eng + this.mat},
+                    toString : function() {return this.no + ", " + this.name + ", " + this.total() + "<br>"}};
+    var student3 = {no : 3, name : "3길동", kor : 50, eng : 30, mat : 30,
+                    total : function() {return this.kor + this.eng + this.mat},
+                    toString : function() {return this.no + ", " + this.name + ", " + this.total() + "<br>"}};
 
     var students = [];
     students.push(student);
@@ -47,6 +53,8 @@
     students.push(student3);
 
     console.log(students);
+
+    document.write(students);
   </script>
 </head>
 <body>

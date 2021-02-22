@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .wrapper {
+      width: 978px;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      background: #09f;
+    }
+
+    .chk {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+    .chkd {
+      background: orange;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+    // Jquery
+    $(function() {
+      $("#btn").click(function() {
+        var msg = prompt("이동할 좌표값을 입력하세요.");
+        // alert(msg);
+
+        if(msg >= 0 && msg <= 430) {
+          $(".box").css("margin-left", msg / 1 + "px");
+        } else {
+          alert("유효한 좌표가 아닙니다");
+        }
+      });
+
+      $(".chk").click(function(e) {
+        console.log(e);
+        if($(".chk").is(".chkd")) { // 체크가 된 상태
+          $(".chk").removeClass("chkd");
+        } else {                    // 체크가 안된 상태
+          $(".chk").addClass("chkd");
+        }
+      });
+
+      $(document).keydown(function(e) {
+        console.log(e);
+        var ml = parseInt($(".box").css("margin-left"));  // getter
+        var mt = parseInt($(".box").css("margin-top"));
+
+        switch(e.keyCode) {
+          case 37:  // 왼쪽
+            $(".box").css("margin-left", ml - 20);        // setter
+            break;
+          case 38:  // 위쪽
+            $(".box").css("margin-top", mt - 20);
+            break;
+          case 39:  // 오른쪽
+            $(".box").css("margin-left", ml + 20);
+            break;
+          case 40:  // 아래쪽
+            $(".box").css("margin-top", mt + 20);
+            break;
+        }
+      });
+    });
+
+    // JS
+    // window.onload = function() {
+    //   var btn = document.getElementById("btn");
+    //   btn.onclick = function() {
+    //     var msg = prompt("이동할 좌표값을 입력하세요.");
+    //     alert(msg);
+    //   }
+    // }
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="box"></div>
+    <hr>
+  </div>
+  <button id="btn">물고기 움직이기</button>
+
+  <hr>
+  <div class="wrapper">
+    <div class="chk-wrapper"><div class="chk"></div> < 여기를 클릭하세요</div>
+  </div>
+</body>
+</html>

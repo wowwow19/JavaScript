@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // var num = 10;
+    // function myFunc() {
+    //   var num = 20; // 지역변수
+    // }
+    // console.log(num); // 10
+
+    // var num = 10;
+    // function myFunc() {
+    //   // var num = 20; // 지역변수 : var로 특정해주어야 함
+    //   num = 20; // 전역변수
+    //   console.log("1 :: " + num);
+    // }
+    // myFunc();
+    // console.log("2 :: " + num); // 10
+
+    var num = 10;
+    function myFunc() {
+      alert(num); // undefined (함수 내의 num을 호이스팅)
+      var num = 20;
+      alert(num); // 20
+    }
+    myFunc();
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

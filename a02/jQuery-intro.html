@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <style>
+    .box1 {
+      width: 50px;
+      height: 50px;
+      background: #09f;
+      display: inline-block;
+      margin: 20px;
+    }
+  </style>
+  <script>
+    // alert($ == jQuery); // true
+    $(function() {
+      $(".down").click(function() {
+        $(".box1").animate({
+          marginTop : "+=50px"
+        })
+      })
+    })
+    $(function() {
+      $(".up").click(function() {
+        $(".box1").animate({
+          marginTop : "-=50px"
+        })
+      })
+    })
+  </script>
+</head>
+<body>
+  <button class="down">click down!</button>
+  <button class="up">click up!</button>
+  <hr>
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+</body>
+</html>

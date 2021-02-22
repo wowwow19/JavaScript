@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    var a = 10;
+    var result = a + 20 + 30;
+    console.log(result);
+
+    var a = 50;
+    var b = 20;
+    var result = a * b / 10;
+    console.log(result);
+
+    var result = 5 % 2;
+    console.log(result);
+
+    // 문자열 결합 연산자 +
+    var str1 = "자바스크립트";
+    var str2 = "자바";
+    console.log(str1 - str2);
+
+    var str1 = "hello";
+    var result = str1 + "world";
+    console.log(result);
+
+    // html 태그를 이용한 5*5 표만들기
+    var htmlStr = "<table>";
+    for(var i = 0; i < 5; i++) {
+      htmlStr += "<tr>";
+        for(var j = 0; j < 5; j++) {
+          htmlStr += "<td>" + i + ", " + j + "</td>";
+        }
+      htmlStr += "</tr>";
+    }
+    htmlStr += "</table>"
+    document.write(htmlStr);
+
+    var num = 1;
+    var str = String(num);
+    console.log(str);
+    console.log(typeof str);
+  </script>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table, table td {
+      border: 1px solid black;
+    }
+
+    td {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>

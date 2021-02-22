@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    var upper = "abcd";
+  </script>
+  <script>
+    // function
+    // - 특정 입력을 연산하여 결과를 반환하는 것
+    
+    // 함수의 호출
+    // pow1();  // 오류 X
+    // pow2();  // 오류 O
+
+    // 함수의 내용보기
+    console.log(pow1);  // 오류 X
+    console.log(pow2);  // undefined
+
+    // 함수의 종류
+    // 1. 선언적 함수 : 함수 선언부에 함수의 이름이 있음
+      // 호이스팅에 의해 함수 선언이 위로 끌어올려짐
+      function pow1() { console.log("pow1()"); }
+    // 2. 익명 함수 : 함수 선언부에 함수의 이름이 없음 > 변수에 담아 사용
+      // 호이스팅에 의해 변수 선언이 위로 끌어올려짐
+      var pow2 = function() { console.log("pow2()"); }
+
+    // scope
+    console.log(apple); // undefined
+    var apple = "사과";
+    console.log(apple); // 사과
+
+    console.log(upper);
+  </script>
+</head>
+<body>
+  <script>
+    console.log(upper);
+  </script>
+</body>
+</html>

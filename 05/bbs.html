@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .board,
+    .board th {
+      border: 1px solid black;
+      border-width: 1px 0;
+    }
+
+    .board {
+      width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      border-width: 3px 0;
+    }
+
+    .board th,
+    .board td {
+      padding: 8px;
+      text-align: center;
+    }
+
+    .board tr ~ tr:hover {
+      background: #f4f4f4;
+    }
+
+    td.left {
+      text-align: left;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+    var str = "";
+
+    for(var i = 1; i <= 10; i++) {
+      str += '<tr>';
+      str += '<td>' + (11-i) + '</td>';
+      str += '<td class="left"><a href="https://naver.com">회원 간 대혐오 근절 캠페인</a></td>';
+      str += '<td>귀여운 제가 왔습니다</td>';
+      str += '<td>21-02-22</td>';
+      str += '<td>' + parseInt(Math.random() * 100) + '</td>';
+      str += '</tr>';
+    }
+
+    $(function() {
+      $(".board").append(str);
+    });
+
+  </script>
+</head>
+<body>
+  <table class="board">
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>작성일</th>
+      <th>조회수</th>
+    </tr>
+  </table>
+</body>
+</html>
