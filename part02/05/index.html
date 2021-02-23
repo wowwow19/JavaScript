@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 3000px;
+    }
+    ul.gnb {
+      list-style: none;
+      background-color: #333;
+      margin: 0;
+    }
+
+    .gnb li {
+      display: inline-block;
+      margin: 20px 50px;
+    }
+
+    .gnb a {
+      text-decoration: none;
+      color: #fefefe;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    .gnb a:hover,
+    .gnb a:focus {
+      color: #f99;
+    }
+
+    .gnb a span {
+      display: inline-block;
+    }
+
+    /* .gnb a span:hover {
+      transform: translateY(2px);
+    } */
+
+    .slide-menu {
+      display: none;
+      background: #f9f9f9;
+      position: absolute;
+      top: 79px;
+      left: 0;
+      width: 100%;
+      padding-left: 20px;
+    }
+
+    .slide-menu ul {
+      display: inline-block;
+      list-style: none;
+      margin: 0 43px;
+    }
+
+    .slide-menu ul li {
+      margin: 20px 0;
+    }
+
+    .slide-menu ul a {
+      text-decoration: none;
+      color: #666;
+    }
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+    $(function() {  // ready 함수
+      $(".gnb a").each(function() {
+        var text = $(this).text();
+        text = wrapTextSpan(text);
+        $(this).html(text);
+      });
+
+      $(".header").on("mouseenter focusin", function() {
+        $(".slide-menu").slideDown();
+      }).on("mouseleave focusout", function() {
+        $(".slide-menu").slideUp();
+      })
+    });
+
+    //   $(".gnb a").hover(function() {
+    //     $(this).css("color", "red");
+    //     var $span = $(this).children();
+    //     setInterval(function() {
+    //       $span.eq
+    //     }, 500)
+    //   }, function() {
+    //     $(this).css("color", "white");
+    //   });
+    // });
+
+    function wrapTextSpan(str) {
+      var ret = "";
+      if(typeof str != "string") return str;
+
+      for(var i = 0; i < str.length; i++) {
+        ret += "<span>" + str.charAt(i) + "</span>";
+      }
+
+      return ret;
+    }
+
+    // alert(wrapTextSpan("ABCD"));
+  </script>
+</head>
+<body>
+  <div class="header">
+    <ul class="gnb">
+      <li><a href="">HOME</a></li>
+      <li><a href="">INTRO</a></li>
+      <li><a href="">ITEM</a></li>
+      <li><a href="">REVIEW</a></li>
+    </ul>
+    <div class="slide-menu">
+      <ul>
+        <li><a href="#">menu1-1</a></li>
+        <li><a href="#">menu1-2</a></li>
+        <li><a href="#">menu1-3</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">menu2-1</a></li>
+        <li><a href="#">menu2-2</a></li>
+        <li><a href="#">menu2-3</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">menu3-1</a></li>
+        <li><a href="#">menu3-2</a></li>
+        <li><a href="#">menu3-3</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">menu4-1</a></li>
+        <li><a href="#">menu4-2</a></li>
+        <li><a href="#">menu4-3</a></li>
+      </ul>
+    </div>
+  </div>
+  <main>
+    <h1>content</h1>
+  </main>
+</body>
+</html>

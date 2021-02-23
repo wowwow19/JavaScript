@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <style>
+    * {
+      font-family: '나눔고딕코딩';
+    }
+    .dice-wrapper i {
+      font-size: 2em;
+      color: #99f;
+    }
+
+    #btn {
+      width: 110px;
+      height: 30px;
+      border: 1px solid #99f;
+      border-radius: 10px;
+      background: white;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+
+    // for(var i = 0; i < 5; i++) {
+    //   for(var j = 0; j < 5; j++) {
+    //     if(i + j <= 4) {
+    //       document.write("*");
+    //     } else {
+    //       document.write("&nbsp;")
+    //     }
+    //       document.write("(" + i + ", " + j + ")");
+    //   }
+    //   document.write("<br>");
+    // }
+  </script>
+  <script>
+    $(function() {
+      $("#btn").click(function() {
+        $(".dice i").hide();
+        $(".dice").each(function() {
+          var rand = parseInt(Math.random() * 6); // 0 ~ 5
+          $(this).find("i").eq(rand).show();
+        });
+      });
+    })
+  </script>
+</head>
+<body>
+  <div class="dice-wrapper">
+    <div class="dice">
+      <i class="fas fa-dice-one"></i>
+      <i class="fas fa-dice-two"></i>
+      <i class="fas fa-dice-three"></i>
+      <i class="fas fa-dice-four"></i>
+      <i class="fas fa-dice-five"></i>
+      <i class="fas fa-dice-six"></i>
+    </div>
+    <div class="dice">
+      <i class="fas fa-dice-one"></i>
+      <i class="fas fa-dice-two"></i>
+      <i class="fas fa-dice-three"></i>
+      <i class="fas fa-dice-four"></i>
+      <i class="fas fa-dice-five"></i>
+      <i class="fas fa-dice-six"></i>
+    </div>
+    <button id="btn">주사위 굴리기</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // function hello() {
+    //   document.write("hello" + "<br>");
+    // }
+
+    // hello();
+    // hello();
+    // hello();
+
+    // function printStar() {
+    //   var star = "";
+    //   for(var i = 0; i < 5; i++) {
+    //     for(var j = 0; j < 5; j++) {
+    //       if(j <= i) {
+    //         star += "*";
+    //       }
+    //     }
+    //     star += "<br>";
+    //   }
+    //   document.write(star);
+    // }
+
+    // printStar();
+
+    // function sum(num1, num2) {
+    //   var result = num1 + num2;
+    //   alert("합 :: " + result);
+    // }
+
+    // sum(1, 2);
+
+    // 함수 : 상위개념, 리턴이 존재
+    // 메서드 : 함수 중 객체에 포함된 함수
+    // 프로시저 : 리턴이 없는 것
+
+    function sumAll() {
+      var ret = 0;
+      for(var i = 0; i < arguments.length; i++) {
+        ret += arguments[i];
+      }
+      return ret;
+    }
+
+    var s = sumAll(1, 2, 3, 4, 5, 10);
+    document.write("s :: " + s);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
