@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <style>
+    #btn {
+      padding: 25px;
+      width: 100px;
+      background: #99f;
+      border: none;
+      border-radius: 20px;
+      color: #f9f9f9;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    $(function() {
+      // var count = 0;
+      // var playing = true;
+
+      // var remain = $("#result h3").eq(0).text();
+      
+      // $("#btn").click(function() {
+      //   if(playing) {
+      //     $("#result h3:eq(1) span").text(++count);
+      //   }
+      // });
+
+      // var remain = 5;
+      // var timer = setInterval(function() {
+      //   $("#result h3:eq(0) span").text(--remain);
+      // }, 1000);
+
+      // setTimeout(function() {
+      //   clearInterval(timer);
+      //   playing = false;
+      // }, 5000);
+      $("#btn").click(function() {
+        var arr = [];
+        for(var i = 0; i < 45; i++) {
+          arr[i] = i+1;
+        }
+
+        for(var i = 0; i < arr.length; i++) {
+          var rand = parseInt(Math.random() * 45) + 1;
+          var tmp;
+          tmp = arr[i];
+          arr[i] = arr[rand];
+          arr[rand] = tmp;
+        }
+
+        var str = "";
+        for(var i = 0; i < 6; i++) {
+          str += arr[i] + " ";
+        }
+
+        $("#nums h4").text(str);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>로또번호 생성기</h2>
+  <button id="btn">Click!</button>
+  <!-- <div id="result">
+    <h3>남은시간 : <span>5</span></h3>
+    <h3>클릭횟수 : <span>0</span></h3>
+  </div> -->
+  <hr>
+  <div id="nums">
+    <h4></h4>
+  </div>
+</body>
+</html>

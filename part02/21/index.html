@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    function hello(name) {
+      alert("안녕하세요 " + name + "님");
+    }
+
+    function hello2(name) {
+      alert("안녕하세요 " + name + "씨");
+    }
+
+    // hello("minu");
+
+    var func = hello;
+    // func("minu");
+
+    // 함수 타입의 파라미터
+
+    function myFunc(name) {
+      console.log(typeof name);
+      name();
+    }
+
+    // myFunc(hello);
+    // myFunc(hello2("minu"));
+    // myFunc(function(name) {
+    //   alert("안녕하세요 " + name + "님")
+    // });
+
+    function createHello() {
+      return function (user) {
+        document.write(user + "님 방문을 환영합니다.");
+      };
+    }
+    // var result = createHello();
+    // console.log(typeof result);
+    // result("minu");
+
+    createHello()("minu");  // 함수의 리턴값인 함수에 파라미터를 전달하는 방법
+
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

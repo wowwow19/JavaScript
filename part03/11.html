@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // window : 창
+      // document, history, screen, navigator, location
+      // screen.orientation
+    window.onload = function() {
+      var timer = setInterval(function() {
+        document.getElementById("h1").innerText = new Date().toLocaleString();
+      }, 1000);
+
+      console.log(timer);
+
+      setTimeout(function() {
+        clearInterval(timer);
+      }, 10000);
+    }
+
+  </script>
+</head>
+<body>
+  <h1 id="h1">HELLO</h1>
+  <div class="box"></div>
+  <div class="result">
+    <p></p>
+  </div>
+</body>
+</html>

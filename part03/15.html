@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      color: #f9f9f9;
+      background: url(https://i.pinimg.com/originals/af/2e/d9/af2ed9943c40ff8cb9a2e2ac1f4ab619.jpg) no-repeat fixed black 0 200px;
+      background-size: cover;
+    }
+
+    .alpha-background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #fff3;
+      z-index: -1;
+    }
+
+    .signin-form {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .signin-form legend {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .signin-form label {
+      display: block;
+      margin: 15px 0;
+      position: relative;
+    }
+
+    .signin-form label span {
+      display: inline-block;
+      width: 150px;
+    }
+
+    .signin-form label input {
+      width: 500px;
+      padding: 5px;
+    }
+
+    .signin-form label select {
+      padding: 5px;
+    }
+
+    .signin-form .error-msg {
+      display: none;
+      width: 100%;
+      color: #f66;
+      position: absolute;
+      top: 30px;
+      left: 150px;
+      font-size: .7em;
+    }
+
+    .signin-form .error-box {
+      box-shadow: 0 0 2px red;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $(".signin-form").on("submit", function() {
+        // 기본이벤트 제거
+        event.preventDefault();
+        var idReg = /^[A-za-z0-9]{5,15}/g;
+        var emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+
+        if(this.id.value.length < 4 || this.id.value.length > 8) {
+          $(this.id).addClass("error-box").next().show();
+        }
+
+        if(this.pw.value.length < 4 || this.id.value.length > 8) {
+          $(this.pw).addClass("error-box").next().show();
+        }
+
+        if(this.pw.value != this.pwck.value) {
+          $(this.pwck).addClass("error-box").next().show();
+        }
+
+        if(this.name.value.length > 15 || this.name.value.length < 1) {
+          $(this.name).addClass("error-box").next().show();
+        }
+
+        if(!emailRegExp.test(this.email.value)) {
+          $(this.email).addClass("error-box").next().show();
+        }
+
+        if(!this.sex.value) {
+          $(this.sex).addClass("error-box").next().show();
+        }
+      });
+
+      $(".signin-form input, .signin-form select").on("change", function() {
+        $(this).removeClass("error-box").next().hide();
+      });
+    });
+  </script>
+</head>
+<body>
+  <form action="" class="signin-form" novalidate>
+    <fieldset>
+      <legend>회원가입</legend>
+      <label for=""><span>아이디</span><input id="id" type="text" name="id" placeholder="아이디는 영문으로 이루어진 4-8자 이내로 입력하세요."><span class="error-msg">아이디를 4-8자 이내로 입력하세요.</span></label>
+      <label for=""><span>비밀번호</span><input type="password" name="pw" placeholder="비밀번호는 4-8자 이내로 입력하세요."><span class="error-msg">비밀번호는 4-8자 이내로 입력하세요.</span></label>
+      <label for=""><span>비밀번호확인</span><input type="password" name="pwck" placeholder="비밀번호확인은 비밀번호와 일치하도록 입력하세요."><span class="error-msg">비밀번호확인은 비밀번호와 일치하도록 입력하세요.</span></label>
+      <label for=""><span>이름</span><input type="text" name="name" placeholder="이름은 15자 이내로 입력하세요."><span class="error-msg">이름은 15자 이내로 입력하세요.</span></label>
+      <label for=""><span>이메일</span><input type="email" name="email" placeholder="ex)abcd@naver.com"><span class="error-msg">ex)abcd@naver.com 형식으로 입력하세요.</span></label>
+      <label for=""><span>성별</span><select
+        name="sex">
+          <option value="">성별</option>
+          <option value="">남</option>
+          <option value="">여</option>
+        </select>
+        <span class="error-msg">성별을 확인해주세요.</span>
+      </label>
+      <button>회원가입</button>
+    </fieldset>
+  </form>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    h1 {
+      border: 1px solid black;
+      margin: 10px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      // $("h1").click(function() {
+      //   $("body").append($(this).clone(true));
+      // });
+      
+      $("h1").click(myAppend);
+
+      function myAppend() {
+        $("body").append($(this).clone(true));
+      }
+    });
+
+    // 함수 객체
+    // var myFunc = new Function("a", "b", "alert(a)");
+    // myFunc(10, 20);
+
+    // 익명함수를 선언 후 즉시 호출
+    // (function (name) {
+    //   alert(name + "님 환영합니다");
+    // })("minu");
+
+    function a() {
+      alert(0);
+    }
+
+    $(function() {
+      function a() {
+        alert(1);
+      }
+      a();
+    });
+
+    $(function() {
+      function a() {
+        alert(2);
+      }
+      a();
+    });
+
+    a();  
+
+    $(function() {
+      a();
+    })
+
+    // 0 -> 1(ready함수) -> 2(ready함수) -> 0(ready함수)
+  </script>
+</head>
+<body>
+  <h1>안녕하세요</h1>
+  <script>
+  </script>
+</body>
+</html>
