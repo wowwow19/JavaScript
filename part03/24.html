@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // 프로토타입 : 생성자함수로 만들어진 객체의 공용 공간
+    Array.prototype.remove = function(i) {
+      this.splice(i, 1);
+    };
+
+    var menus = ["menu1", "menu2", "menu3", "menu4"];
+    var menus = new Array("menu1", "menu2", "menu3", "menu4");
+
+    console.log(menus.length); // 4
+    
+    console.log(menus[-1]); // undefined
+    console.log(menus[0]);
+    console.log(menus[1]);
+    console.log(menus[2]);
+    console.log(menus[3]);
+    console.log(menus[4]); // undefined
+    
+    console.log(menus.length); // 4
+    console.log(menus[10] = "menu11");
+    console.log(menus[9]);
+    console.log(menus.length); // 11
+
+    menus.push("addMenu1");
+    console.log(menus);
+    
+    menus.unshift("addMenu2");
+    console.log(menus);
+
+    console.log(menus.pop()); // menus[12] 제거
+    console.log(menus);
+    
+    console.log(menus.shift()); // menus[0] 제거
+    console.log(menus);
+
+    console.log(menus.join("-")); // 배열을 해당 구분자를 이용한 문자열로 반환
+    console.log(menus.join("-").split("-")); // 특정 구분자로 구분된 문자열을 배열로 반환
+
+    menus.length = 4;
+    console.log(menus);
+    
+    menus.splice(3, 0, "menu5");
+    console.log(menus);
+
+    menus.remove(0);
+    console.log(menus);
+
+    var arr = [5, 3, 2, 4, 1];
+    console.log(arr);
+    arr.remove(0); // 프로토타입을 이용해 메서드 사용 가능
+    console.log(arr);
+    
+    arr.sort(); // 오름차순 정렬
+    console.log(arr);
+
+    arr.sort(function(l, r) { // 내림차순 정렬
+      return r - l;
+    });
+    console.log(arr);
+
+    console.log(menus);
+    menus.sort(); // 오름차순 정렬
+    menus.reverse(); // 순서 반대로 : 내림차순 정렬
+    console.log(menus);
+
+    var str = "alert('하이')";
+    eval(str);
+
+    
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

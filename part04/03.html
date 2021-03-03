@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // 위치기반 서비스
+      // 1. GPS : 정확, 배터리 소모 큼
+      // 2. 통신의 위치 : 비교적 부정확, 배터리 효율 좋은편
+    var obj = navigator.geolocation;
+    for(var i in obj) {
+      document.write("<h3>", i + ":::" + obj[i], "</h3>");
+    }
+
+    // alert(onload);
+
+    window.onload = function() {
+      alert("hi");
+    }
+    alert("world");
+  </script>
+</head>
+<body>
+  <h1>hello world</h1>
+</body>
+</html>

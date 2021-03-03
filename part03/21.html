@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .calendar table {
+      width: 700px;
+      margin: 0 auto;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .calendar table td {
+      border: 1px solid black;
+      padding: 10px;
+      height: 80px;
+      vertical-align: top;
+    }
+
+    .calendar table td.sunday {
+      color: red;
+    }
+
+    .calendar table td.saturday {
+      color: blue;
+    }
+
+    .prev-date,
+    .next-date {
+      opacity: .5;
+    }
+
+    .calendar-top {
+      text-align: center;
+    }
+
+    .calendar-top * {
+      margin: 5px;
+    }
+
+    .calendar-title {
+      display: inline-block;
+      text-align: center;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+  <script>
+    var now = new Date();
+    now.setDate(1);
+    
+    function gridCalendar() {
+      var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      var year = now.getFullYear();
+
+      if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        months[1] = 29;
+      } else {
+        months[1] = 28;
+      }
+
+      var month = now.getMonth();
+      var day = now.getDay();
+      var lastDate = months[month];
+      now.setDate(lastDate)
+      var lastDateDay = now.getDay();
+      var prevMonth = now.getMonth() - 1 < 0 ? months[11] : months[now.getMonth()-1];
+      now.setDate(1);
+
+      var str = "<table><tr>";
+      for(var i = 0 - day; i < lastDate + (6-lastDateDay); i++) {
+        if(i < 0) {
+          str += "<td class = 'prev-date'>" + (prevMonth+i+1);
+        } else if(i > lastDate-1) {
+          str += "<td class ='next-date'>" + ((i+1) - lastDate);
+        } else {
+          str += "<td>" + (i+1);
+        }
+        str += "</td>"
+        if(i % 7 == 6 - day) {
+          str += "</tr><tr>";
+        }
+      }
+      str += "</tr></table>";
+      return str;
+    }
+
+    $(function() {
+      init();
+      $("#btn1").click(prev);
+      $("#btn2").click(next);
+    });
+
+    function init() {
+      $(".calendar-title").html("<h2>" + now.getFullYear() + "/" + (now.getMonth()+1) + "</h2>");
+      $(".calendar").html(gridCalendar());
+      $(".calendar tr").each(function() {
+        $(this).find("td").eq(0).addClass("sunday");
+        $(this).find("td").eq(6).addClass("saturday");
+      });
+    }
+
+    function next() {
+      if(now.getMonth() == 11) {
+        now.setMonth(0);
+        now.setFullYear(now.getFullYear()+1);
+      } else {
+        now.setMonth(now.getMonth()+1);
+      }
+      init();
+    }
+
+    function prev() {
+      if(now.getMonth() == 0) {
+        now.setMonth(11);
+        now.setFullYear(now.getFullYear()-1);
+      } else {
+        now.setMonth(now.getMonth()-1);
+      }
+      init();
+    }
+  </script>
+</head>
+<body>
+  <div class="calendar-top">
+    <button id="btn1">이전달</button>
+    <div class="calendar-title"></div>
+    <button id="btn2">다음달</button>
+  </div>
+  <div class="calendar"></div>
+</body>
+</html>

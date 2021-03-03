@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+
+  </script>
+</head>
+<body>
+  <button id="btn1">버튼1</button>
+  <button id="btn2">버튼2</button>
+  <h1 id="h11">0</h1>
+  <h1 id="h12">0</h1>
+  
+  <!-- 이벤트 중첩 상태 -->
+  <div onclick="alert(0)">
+    <div onclick="alert(1); event.stopPropagation();">
+      <div onclick="alert(2)">
+        <h2 onclick="alert(3)">Hello</h2>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.naver.com" title="네이버" onclick="return confirm(this.title + '로 이동하시겠습니까?');">네이버로 이동</a>
+
+  <script>
+    // 이벤트와 관련해 발생될 수 있는 사항
+      // - 기본이벤트
+        // 1. 기본동작 이벤트 : a href, input submit ...
+        // 2. 기본이벤트 제거함수 : event.preventDefault();
+      // - 이벤트전달
+        // 1. 기본형식 : 버블링(자손 > 부모 순으로 이벤트 전달)
+        // 2. 전달방지함수 : event.stopPropagation();
+
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var h11 = document.getElementById("h11");
+    var h12 = document.getElementById("h12");
+
+    btn1.addEventListener("click", function() {
+      var text = h11.innerText / 1;
+      h11.innerText = ++text;
+    });
+
+    btn2.addEventListener("click", function() {
+      var text = h12.innerText / 1;
+      h12.innerText = ++text;
+
+      btn1.click();
+
+      // btn2.removeEventListener("click", fn);
+      btn2.removeEventListener("click");
+    });
+
+    var fn = function() {
+      alert('야호');
+    };
+
+    btn2.addEventListener("click", fn);
+
+    // onload
+      // ready state
+        // 클라이언트 -(요청중)-> 서버 -(응답중)-> 클라이언트
+      // server status
+        // 100 : 준비, 전송중
+        // 200 : 수신완료
+        // 300 : 일시적 장애
+        // 400 : 클라이언트 귀책 문제
+        // 500 : 섭 귀책 문제
+
+        
+  </script>
+</body>
+</html>

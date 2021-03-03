@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    var names = ["윤인성", "연하진", "구지연", "나선주", "윤아린", "윤명월", 
+                "김미화", "김연화", "박아현", "서준서"];
+
+    var student = {};
+    var students = new Array(names.length);
+
+    for(var i = 0; i < students.length; i++) {
+      students[i] = {};   // students[i] = new Student();와 동일
+      students[i].name = names[i];
+      students[i].kor = getRandomScore();
+      students[i].eng = getRandomScore();
+      students[i].mat = getRandomScore();
+    }
+
+    function getRandomScore() {
+      return parseInt(Math.random() * 55 + 46);
+    }
+
+    console.log(students);
+
+    for(var i in students) {
+      students[i].getSum = function() {
+        return this.kor + this.eng + this.mat;
+      }
+      students[i].getAvg = function() {
+        return this.getSum() / 3;
+      }
+    }
+
+    for(var i in students) {
+      document.write("<h3>", "이름: " + students[i].name + 
+                            ", 총점: " + students[i].getSum() + 
+                            ", 평균: " + students[i].getAvg(), "</h3>")
+    }
+
+    document.write("<hr>");
+    // =========================================
+
+    function Student(name, kor, eng, mat) {
+      this.name = name;
+      this.kor = kor;
+      this.eng = eng;
+      this.mat = mat;
+    }
+
+    // 공통으로 사용되는 메서드는 프로토타입을 이용해 생성자를 확장
+    Student.prototype.getSum = function() {
+      return this.kor + this.eng + this.mat;
+    }
+
+    Student.prototype.getAvg = function() {
+      return this.getSum() / 3;
+    }
+
+    Student.prototype.toString = function() {
+      return "이름: " + students[i].name + 
+                ", 총점: " + students[i].getSum() + 
+                ", 평균: " + students[i].getAvg();
+    }
+
+    // var student = new Student("윤인성", 80, 90, 80);
+    var students = new Array(names.length);
+
+    for(var i = 0; i < students.length; i++) {
+      students[i] = new Student(names[i], getRandomScore(), getRandomScore(), getRandomScore());
+      document.write("<h3>", students[i], "</h3>");
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

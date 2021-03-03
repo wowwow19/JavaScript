@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+
+    var names = ["윤인성", "연하진", "구지연", "나선주", "윤아린", "윤명월", 
+                "김미화", "김연화", "박아현", "서준서"];
+
+    function getRandomScore() {
+      return parseInt(Math.random() * 55 + 46);
+    }
+
+    function Student(name, kor, eng, mat) {
+      // 지역변수로 선언하여 캡슐화 구현
+      var name = name;
+      var kor = kor;
+      var eng = eng;
+      var mat = mat;
+
+      this.getName = function() {
+        return name;
+      }
+      this.getKor = function() {
+        return kor;
+      }
+      this.getEng = function() {
+        return eng;
+      }
+      this.getMat = function() {
+        return mat;
+      }
+    }
+
+    // 공통으로 사용되는 메서드는 프로토타입을 이용해 생성자를 확장
+    Student.prototype.getSum = function() {
+      return this.getKor() + this.getEng() + this.getMat();
+    }
+
+    Student.prototype.getAvg = function() {
+      return this.getSum() / 3;
+    }
+
+    Student.prototype.toString = function() {
+      return "이름: " + this.getName() + 
+                ", 총점: " + this.getSum() + 
+                ", 평균: " + this.getAvg();
+    }
+
+    var students = new Array(names.length);
+
+    for(var i = 0; i < students.length; i++) {
+      students[i] = new Student(names[i], getRandomScore(), getRandomScore(), getRandomScore());
+      document.write("<h3>", students[i], "</h3>");
+    }
+
+
+
+    // var student = new Student("minu", 80, 90, 80);
+    // document.write(student);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

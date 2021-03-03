@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // 객체 : 유형, 무형의 모든 사물
+    // 마우스의 속성 : 버튼 3개, 클릭하기, 휠돌리기
+    var mouse = {
+      button: ["btn1", "btn2", "btn3"],
+      click: function() { alert("클릭했습니다."); },
+      wheel: function() { alert("스크롤했습니다."); },
+      "1test": 1234
+    };
+
+    console.log(mouse.button[1]);
+    // mouse.click();
+
+    console.log(mouse["button"][0]);
+    console.log(mouse["1test"]); // 1234
+    // mouse["wheel"]();
+    for(var i in mouse) { // mouse라는 객체를 i라는 이름으로 탐색
+
+    }
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // var child = open("http://www.naver.com", "child", "width=600, height=300, location=no, resizable=no", true);
+    var child = open("", "", "width=300, height=500");
+
+    child.document.write("<h1>hello world</h1>");
+    // alert(child);
+
+    child.moveTo(0, 0);
+    var timer = setInterval(function() {
+      child.moveBy(10, 10);
+    }, 500);
+
+    setTimeout(function() {
+      clearInterval(timer);
+      child.close();
+    }, 5000);
+
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    window.onload = function() {
+      var h1 = document.createElement("h1");
+      var text = document.createTextNode("hello world");
+      var body = document.getElementsByTagName("body");
+      
+      h1.appendChild(text);
+      body[0].appendChild(h1);
+
+      var img = document.createElement("img");
+      img.src = "https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+      img.alt = "구글로고";
+      img.style = "width:200px";
+      // 정식문법
+      img.setAttribute("id", "img1");
+      // img.data-minu = "minu"
+      img.setAttribute("data-minu", "minu");
+
+      body[0].appendChild(img);
+
+      // 일반적으로 getter가 setter보다 파라미터가 1개 적음
+
+      // alert(document.body.innerHTML);
+      // 텍스트노드만 출력
+      // alert(document.body.innerText);
+
+      document.body.innerHTML += "<h1>추가된 내용</h1>";
+
+      var myId = document.getElementById("myId");
+      // alert(myId.innerText);
+
+      document.getElementById("myId2").onclick = function(e) {
+        alert(this.innerText);
+        this.style.color = "blue";
+        this.style.border = "1px solid";
+        console.log(e);
+        console.log(event);
+      }
+
+      document.getElementById("myId2").click();
+    }
+  </script>
+</head>
+<body>
+  <h1 id="myId" onclick="alert(this.innerText)">내가 왔다1</h1>
+  <h1 id="myId2">내가 왔다2</h1>
+</body>
+</html>
